@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="2" failed="0" total="9" passed="7">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="305" started-at="2019-08-28T13:39:41Z" finished-at="2019-08-28T13:39:41Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="305" started-at="2019-08-28T13:39:41Z" finished-at="2019-08-28T13:39:41Z">
+      <class name="com.testcases.Tc_01">
+        <test-method status="SKIP" signature="afterInvocation(org.testng.IInvokedMethod, org.testng.ITestResult)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="afterInvocation" duration-ms="0" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Method afterInvocation requires 2 parameters but 0 were supplied in the @Test annotation.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Method afterInvocation requires 2 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:193)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:129)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:378)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:488)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1240)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:980)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1070)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:746)
+	at org.testng.TestRunner.run(TestRunner.java:600)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
+	at org.testng.TestNG.runSuites(TestNG.java:1104)
+	at org.testng.TestNG.run(TestNG.java:1076)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterInvocation -->
+        <test-method status="SKIP" signature="beforeInvocation(org.testng.IInvokedMethod, org.testng.ITestResult)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="beforeInvocation" duration-ms="0" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Method beforeInvocation requires 2 parameters but 0 were supplied in the @Test annotation.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Method beforeInvocation requires 2 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:193)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:129)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:378)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:488)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1240)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:980)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1070)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:746)
+	at org.testng.TestRunner.run(TestRunner.java:600)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
+	at org.testng.TestNG.runSuites(TestNG.java:1104)
+	at org.testng.TestNG.run(TestNG.java:1076)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeInvocation -->
+        <test-method status="PASS" signature="onFinish(org.testng.ITestContext)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="onFinish" duration-ms="45" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@4e1d422d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- onFinish -->
+        <test-method status="PASS" signature="onStart(org.testng.ITestContext)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="onStart" duration-ms="3" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@4e1d422d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- onStart -->
+        <test-method status="PASS" signature="onTestFailedButWithinSuccessPercentage(org.testng.ITestResult)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="onTestFailedButWithinSuccessPercentage" duration-ms="3" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- onTestFailedButWithinSuccessPercentage -->
+        <test-method status="PASS" signature="onTestFailure(org.testng.ITestResult)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="onTestFailure" duration-ms="3" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- onTestFailure -->
+        <test-method status="PASS" signature="onTestSkipped(org.testng.ITestResult)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="onTestSkipped" duration-ms="4" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- onTestSkipped -->
+        <test-method status="PASS" signature="onTestStart(org.testng.ITestResult)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="onTestStart" duration-ms="3" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- onTestStart -->
+        <test-method status="PASS" signature="onTestSuccess(org.testng.ITestResult)[pri:0, instance:com.testcases.Tc_01@7823a2f9]" name="onTestSuccess" duration-ms="3" started-at="2019-08-28T19:09:41Z" finished-at="2019-08-28T19:09:41Z">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- onTestSuccess -->
+      </class> <!-- com.testcases.Tc_01 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
