@@ -24,10 +24,13 @@ public class ExtentReport {
 	
 	public static void initReport()
 	{
+		System.out.println("Intializing Report.....");
 		extent=new ExtentReports(createResultFolder()+"\\Test Summary Report.html");
 		
 		extent.addSystemInfo("Sprint #","Sprint 1")
 		.addSystemInfo("Environment","QA");
+		
+		System.out.println("Report intialization completed");
 	}
 	
 	/***
