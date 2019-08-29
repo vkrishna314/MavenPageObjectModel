@@ -21,9 +21,9 @@ public class JobSeeker_StepDefinitions extends CommonUtlities {
 	}
 
 	public void fillForm_PersononalInformation() {
-
+String firstname=getData("TestData", "FirstName");
 		sendDataByClearing("First Name", "Job Seeker_Personal Information",
-				jobseekeror.edi_FirstName, "Vamshi");
+				jobseekeror.edi_FirstName, firstname);
 		sendDataByClearing("Last Name", "Job Seeker_Personal Information",
 				jobseekeror.edi_LastName, "Krishna");
 		sendDataByClearing("Email", "Job Seeker_Personal Information",

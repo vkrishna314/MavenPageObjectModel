@@ -1,0 +1,19 @@
+{
+    "TestData": [
+        {
+            "TestCase_Name": "Tc_01_JobSeeker_Registration",
+            "FirstName": "RAJ",
+            "LastName": "K",
+            "Email": "abc.xyz"
+        }
+    ],
+    "GenericData": [
+        {
+            "Environment": "QA",
+            "URL": "https://www.talentzing.com/Jobseeker/JSRegistration.aspx"
+        },
+        {
+            "Environment": "Dev"
+        }
+    ]
+}

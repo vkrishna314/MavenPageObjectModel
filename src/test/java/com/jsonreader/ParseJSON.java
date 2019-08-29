@@ -7,6 +7,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.listners.Listners;
+
 public class ParseJSON{
 
 	public static JSONParser parser;
@@ -15,10 +17,13 @@ public class ParseJSON{
 	public static void parseJSONfile() {
 		parser = new JSONParser();
 		try {
-			Object object = parser.parse(new FileReader("data.json"));
+			System.out.println("Json File is getting loaded......");
+			Object object = parser.parse(new FileReader("./JsonTestData/Testdata.json"));
 
 			// convert Object to JSONObject
 			jsonObject = (JSONObject) object;
+			
+			System.out.println("Json File is loaded sucessfully !!!");
 
 		} catch (FileNotFoundException fe) {
 			fe.printStackTrace();
@@ -28,7 +33,7 @@ public class ParseJSON{
 		}
 	}
 
-	public static String getData(String arrayname, String testcase, String data)
+	public static String getData(String arrayname, String data)
 
 	{
 		String jsondata = "";
@@ -43,7 +48,7 @@ public class ParseJSON{
 
 				String crnttestcase = (String) item.get("TestCase");
 
-				if (crnttestcase.equalsIgnoreCase(testcase)) {
+				if (crnttestcase.equalsIgnoreCase(Listners.crntTestCaseName)) {
 
 					jsondata = (String) item.get(data);
 

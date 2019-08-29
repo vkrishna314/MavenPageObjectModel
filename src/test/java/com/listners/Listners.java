@@ -7,21 +7,28 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.jsonreader.ParseJSON;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.reporting.ExtentReport;
+
 public class Listners implements ITestListener,IInvokedMethodListener{
 	
 	public static String crntTestCaseName;
-
+	ExtentReport extent;
 	@Override
 	public void afterInvocation(IInvokedMethod arg0, ITestResult arg1) {
 		// TODO Auto-generated method stub
 		System.out.println("in afterInvocation");
+		System.out.println(arg1.getName());
+		extent.endTest();
 		
 	}
 
 	@Override
 	public void beforeInvocation(IInvokedMethod arg0, ITestResult arg1) {
-		// TODO Auto-generated method stub
-		System.out.println("in beforeInvocation");
+				
+				crntTestCaseName=arg1.getName();
+				extent.startTestReport(crntTestCaseName);
 		
 	}
 
@@ -29,13 +36,18 @@ public class Listners implements ITestListener,IInvokedMethodListener{
 	public void onFinish(ITestContext arg0) {
 		// TODO Auto-generated method stub
 		System.out.println("in onFinish");
+		extent.flushReport();
 		
 	}
 
 	@Override
 	public void onStart(ITestContext arg0) {
 		// TODO Auto-generated method stub
-		System.out.println("in onStart");
+		ParseJSON json=new ParseJSON();
+		json.parseJSONfile();
+		 extent=new ExtentReport();
+		extent.initReport();
+		
 	}
 
 	@Override
@@ -60,7 +72,7 @@ public class Listners implements ITestListener,IInvokedMethodListener{
 	@Override
 	public void onTestStart(ITestResult obj) {
 		System.out.println("in onTestStart");
-		System.out.println(obj.getTestName());
+		
 	}
 
 	@Override

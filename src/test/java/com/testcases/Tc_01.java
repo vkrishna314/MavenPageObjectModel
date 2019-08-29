@@ -6,10 +6,11 @@ import org.testng.ITestResult;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.commonutils.CommonUtlities;
 import com.listners.Listners;
 
 @Listeners(value = Listners.class)
-public class Tc_01 {
+public class Tc_01 extends CommonUtlities{
 
 	/*@Test
 	//public void doTestExe() {
@@ -33,17 +34,7 @@ public class Tc_01 {
 
 }
 	@Test
-	public void onFinish(ITestContext arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("in onFinish");
-		
-	}
-	
-	@Test
-	public void onStart(ITestContext arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("in onStart");
-	}
+	public void Tc_01_JobSeeker_Registration() {
 
 	@Test
 	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
