@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.jsonreader.ParseJSON;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class CommonUtlities extends ParseJSON{
 
@@ -84,11 +85,13 @@ public class CommonUtlities extends ParseJSON{
 			driver.manage().window().maximize();
 			// pass the url
 			driver.get(url);
+			LogStatus("pass","Browser is launched sucessfully");
 
 		} catch (Exception e) {
 			status = false;
 
-			System.out.println("Error in laumchApp is " + e.getMessage());
+			System.out.println("Error in launchApp is " + e.getMessage());
+			LogStatus("fail","Browser is not launched sucessfully "+e.getMessage());
 		}
 		return status;
 
@@ -181,12 +184,18 @@ public class CommonUtlities extends ParseJSON{
 			act.moveToElement(element).click(element).build().perform();
 			System.out.println("Clicked on Element" + elementname
 					+ "Successfully");
+			
+			LogStatus("pass","Clicked on Element" + elementname
+					+ "Successfully");
 
 		} catch (Exception e) {
 			status = false;
 
 			System.out.println("Error in Hover and Click " + elementname
 					+ "in page" + pagename + e.getMessage());
+			
+			LogStatus("fail","Unable to Click on Element" + elementname
+					+ "Successfully");
 		}
 		return status;
 
@@ -256,11 +265,18 @@ public class CommonUtlities extends ParseJSON{
 
 			element.clear();
 			element.sendKeys(data);
+			
+			LogStatus("pass","Sucessfully entered the data " + data +" for the element "+ elementname
+					+ " on the Page "+ pageName+"Successfully");
 
 		} catch (Exception e) {
 			status = false;
 
 			System.out.println("Error in Sending Data " + data
+					+ " by Clearing into Field " + elementname + "in page "
+					+ pageName + e.getMessage());
+			
+			LogStatus("fail","Error in Sending Data " + data
 					+ " by Clearing into Field " + elementname + "in page "
 					+ pageName + e.getMessage());
 		}
@@ -300,12 +316,18 @@ public class CommonUtlities extends ParseJSON{
 			for (int i = 0; i <= arr.length - 1; i++) {
 				element.sendKeys(String.valueOf(arr[i]));
 			}
+			LogStatus("pass","Sucessfully entered the data " + data +" for the element "+ elementname
+					+ " on the Page "+ pageName+"Successfully");
+
 
 		} catch (Exception e) {
 			status = false;
 
 			System.out.println("Error in Sending Data by Char into field "
 					+ elementname + "in page " + pageName + e.getMessage());
+			LogStatus("fail","Error in Sending Data " + data
+					+ " by Clearing into Field " + elementname + "in page "
+					+ pageName + e.getMessage());
 		}
 		return status;
 	}
@@ -344,11 +366,18 @@ public class CommonUtlities extends ParseJSON{
 			System.out.println("Dropdown is selected by pageName" + pageName
 					+ "elementname" + elementname + " Webelement " + webElement
 					+ "indexValue" + indexValue);
+			
+			LogStatus("pass","Dropdown is selected by pageName" + pageName
+					+ "elementname" + elementname + " Webelement " + webElement
+					+ "indexValue" + indexValue);
 		}
 
 		catch (Exception e) {
 			status = false;
 			System.out.println(e.getStackTrace());
+			LogStatus("fail","Dropdown is not selected by pageName" + pageName
+					+ "elementname" + elementname + " Webelement " + webElement
+					+ "indexValue" + indexValue);
 		}
 		return status;
 
@@ -401,10 +430,17 @@ public class CommonUtlities extends ParseJSON{
 			System.out.println("The dropdown is selected by pageName"
 					+ pageName + "elementname" + elementname + " Webelement "
 					+ webElement + "Value" + value);
+			
+			LogStatus("pass","The dropdown is selected by pageName"
+					+ pageName + "elementname" + elementname + " Webelement "
+					+ webElement + "Value" + value);
 
 		} catch (Exception e) {
 			status = false;
 			System.out.println(e.getStackTrace());
+			LogStatus("fail","The dropdown is not selected by pageName"
+					+ pageName + "elementname" + elementname + " Webelement "
+					+ webElement + "Value" + value);
 		}
 		return status;
 
@@ -523,10 +559,16 @@ public class CommonUtlities extends ParseJSON{
 			System.out.println("The dropdown is selected  by pageName"
 					+ pageName + "elementname" + elementname + " Webelement "
 					+ elementname + "Xpath" + Xpath);
+			LogStatus("pass","The dropdown is selected  by pageName"
+					+ pageName + "elementname" + elementname + " Webelement "
+					+ elementname + "Xpath" + Xpath);
 
 		} catch (Exception e) {
 			status = false;
 			System.out.println(e.getStackTrace());
+			LogStatus("fail","The dropdown is not selected  by pageName"
+					+ pageName + "elementname" + elementname + " Webelement "
+					+ elementname + "Xpath" + Xpath);
 		}
 		return status;
 
@@ -582,10 +624,18 @@ public class CommonUtlities extends ParseJSON{
 			System.out.println(" Dropdown is selected  by pageName" + pageName
 					+ "elementname" + elementname + " Webelement " + webElement
 					+ "CssSelector" + CssSelector);
+			
+			LogStatus("pass"," Dropdown is selected  by pageName" + pageName
+					+ "elementname" + elementname + " Webelement " + webElement
+					+ "CssSelector" + CssSelector);
 
 		} catch (Exception e) {
 			status = false;
 			System.out.println(e.getStackTrace());
+			
+			LogStatus("fail"," Dropdown is not selected  by pageName" + pageName
+					+ "elementname" + elementname + " Webelement " + webElement
+					+ "CssSelector" + CssSelector);
 		}
 		return status;
 
@@ -617,7 +667,7 @@ public class CommonUtlities extends ParseJSON{
 			}
 
 			attributevalue = element.getAttribute(attribute);
-
+			
 		}
 
 		catch (Exception e) {
@@ -684,10 +734,6 @@ public class CommonUtlities extends ParseJSON{
 		boolean status = true;
 
 		try {
-
-			System.out
-					.println("To check if user passed element is selected or not");
-
 			// Check if the element value is passed or not
 			if (element == null) {
 				throw new Exception("Web Element " + elementname
@@ -695,11 +741,20 @@ public class CommonUtlities extends ParseJSON{
 			}
 
 			status = element.isSelected();
+			
+			if(status)
+			{
+				LogStatus("pass","The element "+elementname+ " is selected on the page "+pagename);
+			}else
+			{
+				LogStatus("fail","The element "+elementname+ " is not selected on the page "+pagename);	
+			}
 
 		}
 
 		catch (Exception e) {
 			System.out.println(e.getStackTrace());
+			LogStatus("fail","Unable to find teh element "+elementname+" on the page "+pagename);
 		}
 
 		return status;
@@ -734,10 +789,20 @@ public class CommonUtlities extends ParseJSON{
 			}
 			// To check if user required web element is displayed or not
 			status = element.isDisplayed();
+			
+			if(status)
+			{
+				LogStatus("pass","The element "+elementname+ " is displayed on the page "+pagename);
+			}else
+			{
+				LogStatus("fail","The element "+elementname+ " is not displayed on the page "+pagename);	
+			}
+
 		}
 
 		catch (Exception e) {
 			System.out.println(e.getStackTrace());
+			LogStatus("fail","Unable to find the element "+elementname+" on the page "+pagename);
 		}
 		return status;
 	}
@@ -772,11 +837,20 @@ public class CommonUtlities extends ParseJSON{
 			}
 
 			status = element.isEnabled();
+			if(status)
+			{
+				LogStatus("pass","The element "+elementname+ " is enabled on the page "+pagename);
+			}else
+			{
+				LogStatus("fail","The element "+elementname+ " is not enabled on the page "+pagename);	
+			}
 
 		}
 
 		catch (Exception e) {
 			System.out.println(e.getStackTrace());
+			LogStatus("fail","The element "+elementname+ " is not identified on the page "+pagename);
+			
 		}
 
 		return status;
