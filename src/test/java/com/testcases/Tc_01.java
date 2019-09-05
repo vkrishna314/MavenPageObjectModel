@@ -12,62 +12,13 @@ import com.listners.Listners;
 @Listeners(value = Listners.class)
 public class Tc_01 extends CommonUtlities{
 
-	/*@Test
-	//public void doTestExe() {
+	@Test
+	public void doTestExe() {
 		
 
-	}*/
-	
-	@Test
-	public void afterInvocation(IInvokedMethod arg0, ITestResult arg1) {
-		// TODO Auto-generated method stub
-		System.out.println("in afterInvocation");
-		
-		
 	}
-	@Test
-	public void beforeInvocation(IInvokedMethod arg0, ITestResult arg1) {
-		// TODO Auto-generated method stub
-		System.out.println("in beforeInvocation");
 	
 	
-
-}
-	@Test
-	public void Tc_01_JobSeeker_Registration() {
-
-	@Test
-	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("in onTestFailedButWithinSuccessPercentage");
-		
-	}
-
-	@Test
-	public void onTestFailure(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("in onTestFailure");
-	}
-
-	@Test
-	public void onTestSkipped(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("in onTestSkipped");
-	}
-
-	@Test
-	public void onTestStart(ITestResult obj) {
-		System.out.println("in onTestStart");
-		//System.out.println(obj.getTestName());
-	}
-
-	@Test
-	public void onTestSuccess(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("in onTestSuccess");
-		
-	}
-
 	
 }
 
