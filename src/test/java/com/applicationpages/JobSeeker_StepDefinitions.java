@@ -20,26 +20,26 @@ public class JobSeeker_StepDefinitions extends CommonUtlities {
 
 	}
 
-	public void fillForm_PersononalInformation() {
-String firstname=getData("TestData", "FirstName");
+	public void fillForm_PersonalInformation() {
+String firstname= getName();
 		sendDataByClearing("First Name", "Job Seeker_Personal Information",
 				jobseekeror.edi_FirstName, firstname);
 		
-		String LastName=getData("TestData", "LastName");
+		String LastName=getName();
 	
 		sendDataByClearing("Last Name", "Job Seeker_Personal Information",
 				jobseekeror.edi_LastName, LastName );
 		
-		String Email=getData("TestData", "Email");
+		String Email=getEmail();
 
 		sendDataByClearing("Email", "Job Seeker_Personal Information",
 				jobseekeror.edi_Email, Email);
 		
-		String ContactNumber=getData("TestData", "ContactNumber");
+		String ContactNumber=getPhNo();
 		sendDataByClearing("Contact Number", "Job Seeker_Personal Information",
 				jobseekeror.edi_ContactNumber, ContactNumber);
 		
-		String LandLineNumber=getData("TestData", "LandLineNumber");
+		String LandLineNumber=getPhNo();
 
 		sendDataByClearing("Landline Number",
 				"Job Seeker_Personal Information",
@@ -59,8 +59,8 @@ String firstname=getData("TestData", "FirstName");
 		
 		String DOB=getData("TestData", "DOB");
 
-		sendDataByClearing("Date Of Birth", "Job Seeker_Personal Information",
-				jobseekeror.edi_dob, DOB);
+		//sendDataByClearing("Date Of Birth", "Job Seeker_Personal Information",
+				//jobseekeror.edi_dob, DOB);
 		
 		hoverAndClick("Gender", "Job Seeker_Personal Information",
 				jobseekeror.rdo_GenderMale);
@@ -74,69 +74,89 @@ String firstname=getData("TestData", "FirstName");
 		sendDataByClearing("Languages Known",
 				"Job Seeker_Personal Information",
 				jobseekeror.edi_LanguagesKnown, LanguagesKnown);
+		
+		hoverAndClick("Continue Button", "Job Seeker_Personal Information", jobseekeror.btn_ContinueStep1);
 
 	}
-
-	// //Validation of mandatory text for First Name
-	public void ValidateMandatoryField_PersonalInformation() {
-
-	}
-
+	
+	//Professional Details Step
+	
 	public void fillForm_ProfessionalDetails() {
 
 		// Select Current Industry
+		
+		String CurrentIndustry=getData("TestData", "CurrentIndustry");
+
 		selectDropdownByVisibleText("Current Industry",
 				"Job Seeker_Professional Details",
-				jobseekeror.drp_CurrentIndustry, "Accounting/Finance");
+				jobseekeror.drp_CurrentIndustry, CurrentIndustry);
 
 		// Select Role
-		selectDropdownByVisibleText("Role", "Job Seeker_Professional Details",
-				jobseekeror.drp_Role, "Account Manager");
+		String Role=getData("TestData", "Role");
 
+		selectDropdownByVisibleText("Role", "Job Seeker_Professional Details",
+				jobseekeror.drp_Role, Role);
+		
+		//Select JobType
+		String JobType=getData("TestData", "JobType");
 		selectDropdownByVisibleText("Job Type",
 				"Job Seeker_Professional Details", jobseekeror.drp_JobType,
-				"Account Manager");
+				JobType);
 
 		// Enter Current Designation
-		sendDataByClearing("Current Designation",
-				"Job Seeker_Professional Details",
-				jobseekeror.edi_CurrentDesignation, "Senior Manager");
+		String CurrentDesignation=getData("TestData", "CurrentDesignation");
 
-		// Select Job Type
-		selectDropdownByVisibleText("Job Type",
-				"Job Seeker_Professional Details", jobseekeror.drp_JobType,
-				"Account Manager");
+		sendData("Current Designation",
+				"Job Seeker_Professional Details",
+				jobseekeror.edi_CurrentDesignation, CurrentDesignation);
+
 
 		// Select Total Experience in Years
+		String ExpYears=getData("TestData", "ExpYears");
+
 		selectDropdownByVisibleText("Total Experience in Years",
 				"Job Seeker_Professional Details",
-				jobseekeror.drp_TotalExperience_Years, "7");
+				jobseekeror.drp_TotalExperience_Years, ExpYears);
 
 		// Select Total Experience in Months
+		String ExpMonths=getData("TestData", "ExpMonths");
+
 		selectDropdownByVisibleText("Total Experience in Months",
 				"Job Seeker_Professional Details",
-				jobseekeror.drp_TotalExperience_Months, "2");
+				jobseekeror.drp_TotalExperience_Months, ExpMonths);
 
 		// Enter Resume Headline
-		sendDataByClearing("Resume Headline",
-				"Job Seeker_Professional Details",
-				jobseekeror.txt_ResumeHeadline,
-				"7 Years of Experience in Testing");
+		/*
+		 * String ResumeHeadline=getData("TestData", "ResumeHeadline");
+		 * 
+		 * sendDataByClearing("Resume Headline", "Job Seeker_Professional Details",
+		 * jobseekeror.txt_ResumeHeadline, ResumeHeadline);
+		 */
 
 		// Enter Current Company
+		String CurrentCompany=getData("TestData", "CurrentCompany");
+		sendData("Current Company",
+				"Job Seeker_Professional Details",
+				jobseekeror.txt_CurrentCompany, CurrentCompany);
+		//Key Skills
+		String keySkills=getData("TestData", "keySkills");
 		sendDataByClearing("Current Company",
 				"Job Seeker_Professional Details",
-				jobseekeror.txt_CurrentCompany, "Cigniti");
+				jobseekeror.txt_Keyskills, keySkills);
 
-		// Select Total Experience in Months
+		// Select Current Location
+		String CurrentLocation=getData("TestData", "CurrentLocation");
 		selectDropdownByVisibleText("Current Location",
 				"Job Seeker_Professional Details",
-				jobseekeror.drp_CurrentLocation, "Hyderabad");
+				jobseekeror.drp_CurrentLocation, CurrentLocation);
 
-		// Select Total Experience in Months
+		// Select Preferred Location
+		String PreferredLocation=getData("TestData", "PreferredLocation");
 		selectDropdownByVisibleText("Preferred Location",
 				"Job Seeker_Professional Details",
-				jobseekeror.drp_PreferredLocation, "Hyderabad");
+				jobseekeror.drp_PreferredLocation, PreferredLocation);
+		
+		hoverAndClick("Continue Button", "Job Seeker_Personal Information", jobseekeror.btn_ContinueStep2);
 
 	}
 

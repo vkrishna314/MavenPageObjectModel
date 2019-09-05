@@ -10,6 +10,7 @@ import com.applicationpages.JobSeeker_StepDefinitions;
 import com.commonutils.CommonUtlities;
 import com.listners.Listners;
 
+
 @Listeners(value = Listners.class)
 public class Tc_01 extends CommonUtlities{
 
@@ -22,7 +23,13 @@ if(status)
 {
 	JobSeeker_StepDefinitions jobseeker=new JobSeeker_StepDefinitions();
 	
-	jobseeker.fillForm_PersononalInformation();
+	jobseeker.validate_AllMandatoryFields_PersonalInformation();
+	jobseeker.fillForm_PersonalInformation();
+	jobseeker.fillForm_ProfessionalDetails();
+	
+	
+	driver.close();
+	driver.quit();
 	
 }
 
