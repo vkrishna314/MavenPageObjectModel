@@ -22,4 +22,16 @@
             "Environment": "Dev"
         }
     ]
+    
+    "FresherPage": [
+    	{
+    		"URL": "https://www.talentzing.com/FreshersCorner/FreshersRegister.aspx"
+    		"FirstName": "RAJ",
+            "LastName": "K",
+            "Email": "abc.xyz"
+            "ContactNo": "8106936335"
+            "Password": "passwordfortm"               
+    	}
+    
+    ]
 }

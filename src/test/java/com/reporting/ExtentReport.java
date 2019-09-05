@@ -11,7 +11,9 @@ import com.commonutils.CommonUtlities;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
-public class ExtentReport {
+import fakermethods.FakerMethods;
+
+public class ExtentReport extends FakerMethods{
 
 	public static ExtentReports extent;
 	public static ExtentTest test;
