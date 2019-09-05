@@ -8,8 +8,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import com.listners.Listners;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.reporting.ExtentReport;
 
-public class ParseJSON{
+public class ParseJSON extends ExtentReport{
 
 	public static JSONParser parser;
 	public static JSONObject jsonObject;
