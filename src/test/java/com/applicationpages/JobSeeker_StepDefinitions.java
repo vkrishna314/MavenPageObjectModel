@@ -174,21 +174,8 @@ String firstname= getName();
 	}
 
 	public void validate_AllMandatoryFields_PersonalInformation() {
-
-		try {
-			if (JobSeekerOR.edi_FirstName.equals(null)) {
-				JobSeekerOR.btn_ContinueStep1.click();
-			} else
-
-				throw new Exception("Field value is not null");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			System.out
-					.println("error in validate_AllMandatoryFields_PersonalInformation"
-							+ e1.getMessage());
-		}
-
-		validate_MandatoryFields_PersonalInformation("First Name ",
+try{
+           validate_MandatoryFields_PersonalInformation("First Name ",
 				jobseekeror.lbl_FirstName, errorMessages()
 						.get("firstnameerror").toString(),
 				jobseekeror.txt_FirstNameMandatorytext);
@@ -212,6 +199,18 @@ String firstname= getName();
 		validate_MandatoryFields_PersonalInformation("Gender",
 				jobseekeror.lbl_Gender, errorMessages().get("gendererror")
 						.toString(), jobseekeror.txt_GenderMandatorytext);
+		LogStatus("pass","Successfully validated all the mandatory fields");
+	
+
+		
+	
+
+} catch (Exception e1) {
+	// TODO Auto-generated catch block
+	LogStatus("fail","error in validate_AllMandatoryFields_PersonalInformation"
+					+ e1.getMessage());
+}
+
 	}
 
 	public static Map errorMessages() {
@@ -234,12 +233,14 @@ String firstname= getName();
 		try {
 			if (!(element == null)) {
 				jobseekeror.btn_ContinueStep1.click();
+				
+			LogStatus("pass",elementname+"is not null");
 			} else
 
 				throw new Exception(elementname + " is null");
+			LogStatus("fail",elementname+" is Element Name is null");
 		} catch (Exception e1) {
-			System.out
-					.println("error in validate_MandatoryFields_PersonalInformation is"
+			LogStatus("fail",elementname+"is null"
 							+ e1.getMessage());
 		}
 
@@ -252,19 +253,20 @@ String firstname= getName();
 
 				if (isElementColorRed(mandatorytxtelement))
 
-					System.out.println("The colour is matched ");
-
+					{System.out.println("The colour is matched ");
+				LogStatus("pass","Colour is successfully validated");
+					}
 				else
 
 					throw new Exception(" Colour Mismatch");
+				LogStatus("fail","Colour Mismatch of WebElement"+elementname);
 			} else
-
 				throw new Exception("Validation text is not displayed");
-
+                    LogStatus("fail","Validation text is not displayed");
+				
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out
-					.println("error in validate_MandatoryFields_PersonalInformation"
+			LogStatus("fail","error in validate_MandatoryFields_PersonalInformation"
 							+ e.getMessage());
 		}
 	}
