@@ -42,8 +42,11 @@ public class CommonUtlities extends ParseJSON{
 	 * @test
 	 */
 
-	public static boolean launchApplication(String browser, String url) {
+	public static boolean launchApplication(String browser) {
 		boolean status = true;
+		String url=getURL("QA","URL");
+		
+		
 		try {
 			System.out.println("Attempting to launch the Browser :" + browser);
 			// check if the browser and url is not empty

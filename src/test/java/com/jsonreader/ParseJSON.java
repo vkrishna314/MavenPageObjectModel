@@ -48,7 +48,10 @@ public class ParseJSON extends ExtentReport{
 			{
 				JSONObject item = (JSONObject) arr.get(i);
 
-				String crnttestcase = (String) item.get("TestCase");
+				String crnttestcase = (String) item.get("TestCase_Name");
+				
+				System.out.println(crnttestcase);
+				System.out.println(Listners.crntTestCaseName);
 
 				if (crnttestcase.equalsIgnoreCase(Listners.crntTestCaseName)) {
 
@@ -70,5 +73,45 @@ public class ParseJSON extends ExtentReport{
 		return jsondata;
 
 	}
+	
+	public static String getURL(String Environment,String data)
+
+	{
+		String jsondata = "";
+		try {
+			// Reading the array
+			JSONArray arr = (JSONArray) jsonObject.get("GenericData");
+
+			for (int i = 0; i <= arr.size() - 1; i++)
+
+			{
+				JSONObject item = (JSONObject) arr.get(i);
+
+				String env = (String) item.get("Environment");
+
+				if (env.equalsIgnoreCase(Environment)) {
+
+					jsondata = (String) item.get(data);
+
+					System.out.println(jsondata);
+
+					break;
+
+				}
+
+			}
+
+		}
+
+		catch (Exception e) {
+			System.out.println("Unable to get the data for the field " + data);
+		}
+		return jsondata;
+
+	}
+	
+	
+	
+	
 
 }

@@ -24,29 +24,56 @@ public class JobSeeker_StepDefinitions extends CommonUtlities {
 String firstname=getData("TestData", "FirstName");
 		sendDataByClearing("First Name", "Job Seeker_Personal Information",
 				jobseekeror.edi_FirstName, firstname);
+		
+		String LastName=getData("TestData", "LastName");
+	
 		sendDataByClearing("Last Name", "Job Seeker_Personal Information",
-				jobseekeror.edi_LastName, "Krishna");
+				jobseekeror.edi_LastName, LastName );
+		
+		String Email=getData("TestData", "Email");
+
 		sendDataByClearing("Email", "Job Seeker_Personal Information",
-				jobseekeror.edi_Email, "vamshi.thodeti@gmai.com");
+				jobseekeror.edi_Email, Email);
+		
+		String ContactNumber=getData("TestData", "ContactNumber");
 		sendDataByClearing("Contact Number", "Job Seeker_Personal Information",
-				jobseekeror.edi_ContactNumber, "7799327686");
+				jobseekeror.edi_ContactNumber, ContactNumber);
+		
+		String LandLineNumber=getData("TestData", "LandLineNumber");
+
 		sendDataByClearing("Landline Number",
 				"Job Seeker_Personal Information",
-				jobseekeror.edi_LandLineNumber, "11111");
+				jobseekeror.edi_LandLineNumber, LandLineNumber);
+		
+		String Password=getData("TestData", "Password");
+
 		sendDataByClearing("Password", "Job Seeker_Personal Information",
-				jobseekeror.edi_password, "xxx");
+				jobseekeror.edi_password, Password);
+		
+
+		String ConfirmPassword=getData("TestData", "ConfirmPassword");
+
 		sendDataByClearing("Confirm Password",
 				"Job Seeker_Personal Information",
-				jobseekeror.edi_confirmpassword, "xxx");
+				jobseekeror.edi_confirmpassword, ConfirmPassword);
+		
+		String DOB=getData("TestData", "DOB");
+
 		sendDataByClearing("Date Of Birth", "Job Seeker_Personal Information",
-				jobseekeror.edi_dob, "23-09-2000");
+				jobseekeror.edi_dob, DOB);
+		
 		hoverAndClick("Gender", "Job Seeker_Personal Information",
 				jobseekeror.rdo_GenderMale);
+		
+		
 		hoverAndClick("Are You in Notice", "Job Seeker_Personal Information",
 				jobseekeror.rdo_No);
+		
+		String LanguagesKnown=getData("TestData", "LanguagesKnown");
+
 		sendDataByClearing("Languages Known",
 				"Job Seeker_Personal Information",
-				jobseekeror.edi_LanguagesKnown, "Telugu, Hindi, English");
+				jobseekeror.edi_LanguagesKnown, LanguagesKnown);
 
 	}
 

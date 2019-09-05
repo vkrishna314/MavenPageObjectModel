@@ -6,6 +6,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.applicationpages.JobSeeker_StepDefinitions;
 import com.commonutils.CommonUtlities;
 import com.listners.Listners;
 
@@ -13,8 +14,18 @@ import com.listners.Listners;
 public class Tc_01 extends CommonUtlities{
 
 	@Test
-	public void doTestExe() {
-		
+	public void Tc_01_JobSeeker_Registration() {
+boolean status=launchApplication("chrome");
+
+
+if(status)
+{
+	JobSeeker_StepDefinitions jobseeker=new JobSeeker_StepDefinitions();
+	
+	jobseeker.fillForm_PersononalInformation();
+	
+}
+
 
 	}
 	

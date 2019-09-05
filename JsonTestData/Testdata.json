@@ -2,9 +2,15 @@
     "TestData": [
         {
             "TestCase_Name": "Tc_01_JobSeeker_Registration",
-            "FirstName": "RAJ",
-            "LastName": "K",
-            "Email": "abc.xyz"
+            "FirstName": "Vamshi",
+            "LastName": "Krishna",
+            "Email": "vamshi.thodeti@gmail.com"
+            "ContactNumber": "7799327686"
+            "LandLineNumber": "040-6866666"
+            "Password": "#Perfect@2019"
+            "ConfirmPassword": "#Perfect@2019"
+            "DOB": "08/12/1990"
+            "LanguagesKnown": "Telugu, Hindi, English"
         }
     ],
     "GenericData": [
