@@ -3,6 +3,7 @@ package com.applicationpages;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -21,7 +22,9 @@ public class JobSeeker_StepDefinitions extends CommonUtlities {
 	}
 
 	public void fillForm_PersonalInformation() {
-String firstname= getName();
+		
+
+		String firstname= getName();
 		sendDataByClearing("First Name", "Job Seeker_Personal Information",
 				jobseekeror.edi_FirstName, firstname);
 		
@@ -58,14 +61,20 @@ String firstname= getName();
 				jobseekeror.edi_confirmpassword, ConfirmPassword);
 		
 		String DOB=getData("TestData", "DOB");
+		
 
-		//sendDataByClearing("Date Of Birth", "Job Seeker_Personal Information",
-				//jobseekeror.edi_dob, DOB);
+
+		sendDataByClearing("Date Of Birth", "Job Seeker_Personal Information",
+				jobseekeror.edi_dob, DOB);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		hoverAndClick("Gender", "Job Seeker_Personal Information",
-				jobseekeror.rdo_GenderMale);
-		
-		
+		scrollDown();
+		forceClick(jobseekeror.rdo_GenderMale);
 		hoverAndClick("Are You in Notice", "Job Seeker_Personal Information",
 				jobseekeror.rdo_No);
 		
@@ -82,94 +91,145 @@ String firstname= getName();
 	//Professional Details Step
 	
 	public void fillForm_ProfessionalDetails() {
+		
+		boolean status =IsElementDisplayed("Current Industry", "Professional Details page" , jobseekeror.lbl_CurrentIndustry);
 
+		
+	if(status=true){
+		
 		// Select Current Industry
 		
-		String CurrentIndustry=getData("TestData", "CurrentIndustry");
+				String CurrentIndustry=getData("TestData", "CurrentIndustry");
 
-		selectDropdownByVisibleText("Current Industry",
-				"Job Seeker_Professional Details",
-				jobseekeror.drp_CurrentIndustry, CurrentIndustry);
+				selectDropdownByVisibleText("Current Industry",
+						"Job Seeker_Professional Details",
+						jobseekeror.drp_CurrentIndustry, CurrentIndustry);
 
-		// Select Role
-		String Role=getData("TestData", "Role");
+				// Select Role
+				String Role=getData("TestData", "Role");
 
-		selectDropdownByVisibleText("Role", "Job Seeker_Professional Details",
-				jobseekeror.drp_Role, Role);
+				selectDropdownByVisibleText("Role", "Job Seeker_Professional Details",
+						jobseekeror.drp_Role, Role);
+				
+				//Select JobType
+				String JobType=getData("TestData", "JobType");
+				selectDropdownByVisibleText("Job Type",
+						"Job Seeker_Professional Details", jobseekeror.drp_JobType,
+						JobType);
+
+				// Enter Current Designation
+				String CurrentDesignation=getData("TestData", "CurrentDesignation");
+
+				sendData("Current Designation",
+						"Job Seeker_Professional Details",
+						jobseekeror.edi_CurrentDesignation, CurrentDesignation);
+
+
+				// Select Total Experience in Years
+				String ExpYears=getData("TestData", "ExpYears");
+
+				selectDropdownByVisibleText("Total Experience in Years",
+						"Job Seeker_Professional Details",
+						jobseekeror.drp_TotalExperience_Years, ExpYears);
+
+				// Select Total Experience in Months
+				String ExpMonths=getData("TestData", "ExpMonths");
+
+				selectDropdownByVisibleText("Total Experience in Months",
+						"Job Seeker_Professional Details",
+						jobseekeror.drp_TotalExperience_Months, ExpMonths);
+
+				// Enter Resume Headline
+				
+				  String ResumeHeadline=getData("TestData", "ResumeHeadline");
+				  
+				  sendDataByClearing("Resume Headline", "Job Seeker_Professional Details",
+				  jobseekeror.txt_ResumeHeadline, ResumeHeadline);
+				 
+
+				// Enter Current Company
+				String CurrentCompany=getData("TestData", "CurrentCompany");
+				sendData("Current Company",
+						"Job Seeker_Professional Details",
+						jobseekeror.txt_CurrentCompany, CurrentCompany);
+				//Key Skills
+				String keySkills=getData("TestData", "keySkills");
+				sendDataByClearing("Current Company",
+						"Job Seeker_Professional Details",
+						jobseekeror.txt_Keyskills, keySkills);
+
+				// Select Current Location
+				String CurrentLocation=getData("TestData", "CurrentLocation");
+				selectDropdownByVisibleText("Current Location",
+						"Job Seeker_Professional Details",
+						jobseekeror.drp_CurrentLocation, CurrentLocation);
+
+				// Select Preferred Location
+				String PreferredLocation=getData("TestData", "PreferredLocation");
+				
+				scrollDown();
+				
+				hoverAndClick("Preffered location", "Job Seeker", jobseekeror.drp_PreferredLocation);
+				//hoverAndClick("preferred Location", "Job Seeker", jobseekeror.drp_PreferredLocationSearch);
+				String searchdata = getData("TestData", "PreferredLocation").trim();
+
+				sendData("preferred Location", "Job Seeker", jobseekeror.drp_PreferredLocationSearch, searchdata);
+				
+				String xpath="//label[normalize-space(text())='"+searchdata+"']";
+				
+				WebElement element=driver.findElement(By.xpath(xpath));
+				
+				hoverAndClick("Preffered location", "Job Seeker", element);
+				
+				hoverAndClick("Preffered location", "Job Seeker", jobseekeror.drp_PreferredLocation);
+				
+				
+				
+				hoverAndClick("Continue Button", "Job Seeker_Personal Information", jobseekeror.btn_ContinueStep2);
+				System.out.println("Professional Details Filled Successfully");
+				LogStatus("pass", "Professional Details Filled Successfully");
 		
-		//Select JobType
-		String JobType=getData("TestData", "JobType");
-		selectDropdownByVisibleText("Job Type",
-				"Job Seeker_Professional Details", jobseekeror.drp_JobType,
-				JobType);
+	}else {
+		System.out.println("Unable to navigate to Professional Details page");
+		LogStatus("fail", "Professional Details not filled");
+	}
 
-		// Enter Current Designation
-		String CurrentDesignation=getData("TestData", "CurrentDesignation");
-
-		sendData("Current Designation",
-				"Job Seeker_Professional Details",
-				jobseekeror.edi_CurrentDesignation, CurrentDesignation);
-
-
-		// Select Total Experience in Years
-		String ExpYears=getData("TestData", "ExpYears");
-
-		selectDropdownByVisibleText("Total Experience in Years",
-				"Job Seeker_Professional Details",
-				jobseekeror.drp_TotalExperience_Years, ExpYears);
-
-		// Select Total Experience in Months
-		String ExpMonths=getData("TestData", "ExpMonths");
-
-		selectDropdownByVisibleText("Total Experience in Months",
-				"Job Seeker_Professional Details",
-				jobseekeror.drp_TotalExperience_Months, ExpMonths);
-
-		// Enter Resume Headline
-		/*
-		 * String ResumeHeadline=getData("TestData", "ResumeHeadline");
-		 * 
-		 * sendDataByClearing("Resume Headline", "Job Seeker_Professional Details",
-		 * jobseekeror.txt_ResumeHeadline, ResumeHeadline);
-		 */
-
-		// Enter Current Company
-		String CurrentCompany=getData("TestData", "CurrentCompany");
-		sendData("Current Company",
-				"Job Seeker_Professional Details",
-				jobseekeror.txt_CurrentCompany, CurrentCompany);
-		//Key Skills
-		String keySkills=getData("TestData", "keySkills");
-		sendDataByClearing("Current Company",
-				"Job Seeker_Professional Details",
-				jobseekeror.txt_Keyskills, keySkills);
-
-		// Select Current Location
-		String CurrentLocation=getData("TestData", "CurrentLocation");
-		selectDropdownByVisibleText("Current Location",
-				"Job Seeker_Professional Details",
-				jobseekeror.drp_CurrentLocation, CurrentLocation);
-
-		// Select Preferred Location
-		String PreferredLocation=getData("TestData", "PreferredLocation");
-		selectDropdownByVisibleText("Preferred Location",
-				"Job Seeker_Professional Details",
-				jobseekeror.drp_PreferredLocation, PreferredLocation);
 		
-		hoverAndClick("Continue Button", "Job Seeker_Personal Information", jobseekeror.btn_ContinueStep2);
 
 	}
 
 	public void fillForm_EducationalDetails() {
+		
+		boolean status =IsElementDisplayed("Education", "Education Details page" , jobseekeror.lbl_Education);
+		
+		if(status=true) {
+		String Education=getData("TestData", "Education");
 		selectDropdownByVisibleText("Education",
-				"Job Seeker_Education Details", jobseekeror.drp_Education,
-				"Accounting/Finance");
-		selectDropdownByVisibleText("Current Industry",
-				"Job Seeker_Professional Details",
-				jobseekeror.drp_CurrentIndustry, "Accounting/Finance");
-		selectDropdownByVisibleText("Current Industry",
-				"Job Seeker_Professional Details",
-				jobseekeror.drp_CurrentIndustry, "Accounting/Finance");
+				"Job Seeker_Education Details",
+				jobseekeror.drp_Education, Education);
+		
+		String Institute=getData("TestData", "Institute");
+		selectDropdownByVisibleText("Institute",
+				"Job Seeker_Education Details",
+				jobseekeror.drp_Institute, Institute);
+		
+		String YearofPass=getData("TestData", "YearofPass");
+		selectDropdownByVisibleText("Institute",
+				"Job Seeker_Education Details",
+				jobseekeror.Drp_YearOfPassing, YearofPass);
+		
+		scrollDown();
+		hoverAndClick("Terms and Conditions", "Education Details Page", jobseekeror.chk_Terms_Conditions);
+		hoverAndClick("Submit", "job seeker education details", jobseekeror.btn_Submit);
+		System.out.println("Successfully Filled Education Details Page");
+		LogStatus("pass", "Education Details Filled successfully");
+		
+		}else {
+			System.out.println("Unable to Navigate to Education Details Page");
+			LogStatus("fail", "Education Details Not Filled");
+		}
+		
+	
 
 	}
 
@@ -212,6 +272,8 @@ String firstname= getName();
 		validate_MandatoryFields_PersonalInformation("Gender",
 				jobseekeror.lbl_Gender, errorMessages().get("gendererror")
 						.toString(), jobseekeror.txt_GenderMandatorytext);
+		
+	
 	}
 
 	public static Map errorMessages() {

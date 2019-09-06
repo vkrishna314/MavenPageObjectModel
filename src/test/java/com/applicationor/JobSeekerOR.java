@@ -94,6 +94,10 @@ public class JobSeekerOR {
 	@FindBy(xpath="//button[@class='multiselect dropdown-toggle btn-block btn btn-default']")
 	public static WebElement drp_PreferredLocation;
 	
+	@FindBy(xpath="//input[@placeholder='Search']")
+	public static WebElement drp_PreferredLocationSearch;
+	
+	
 	@FindBy(xpath="//a[@id='backtostep1']")
 	public static WebElement btn_back;
 	
@@ -237,6 +241,9 @@ public class JobSeekerOR {
 	
 	@FindBy(xpath="//select[@id='ctl00_ContentPlaceHolder2_ddlEducation']")
 	public static WebElement drp_Education;
+	
+	@FindBy(xpath="//label[normalize-space(text())='Education ']")
+	public static WebElement lbl_Education;
 	
 	@FindBy(xpath="//select[@id='ctl00_ContentPlaceHolder2_ddlinstitute']")
 	public static WebElement drp_Institute;

@@ -23,9 +23,10 @@ if(status)
 {
 	JobSeeker_StepDefinitions jobseeker=new JobSeeker_StepDefinitions();
 	
-	jobseeker.validate_AllMandatoryFields_PersonalInformation();
+	//jobseeker.validate_AllMandatoryFields_PersonalInformation();
 	jobseeker.fillForm_PersonalInformation();
 	jobseeker.fillForm_ProfessionalDetails();
+	jobseeker.fillForm_EducationalDetails();
 	
 	
 	driver.close();
