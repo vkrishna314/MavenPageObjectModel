@@ -1058,7 +1058,10 @@ catch(Exception e){
 	status=false;
 }
 return status;
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 	public static void scrollDown()
 	{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
@@ -1070,7 +1073,10 @@ return status;
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();",element);
 	}
+<<<<<<< Updated upstream
 >>>>>>> 98a9e1a9b395b1312ea330dc07e54767c9405868
+=======
+>>>>>>> Stashed changes
 
 }
 public static boolean quitdriver()

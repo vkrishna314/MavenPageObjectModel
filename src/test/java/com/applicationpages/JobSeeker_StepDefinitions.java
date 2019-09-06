@@ -248,13 +248,19 @@ public class JobSeeker_StepDefinitions extends CommonUtlities {
 		selectDropdownByVisibleText("Preferred Location",
 				"Job Seeker_Professional Details",
 				jobseekeror.drp_PreferredLocation, PreferredLocation);
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 	}else {
 		System.out.println("Unable to navigate to Professional Details page");
 		LogStatus("fail", "Professional Details not filled");
 	}
 
+<<<<<<< Updated upstream
 >>>>>>> 98a9e1a9b395b1312ea330dc07e54767c9405868
+=======
+>>>>>>> Stashed changes
 		
 
 	}

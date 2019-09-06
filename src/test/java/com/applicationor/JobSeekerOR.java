@@ -110,11 +110,17 @@ public class JobSeekerOR {
 <<<<<<< HEAD
 	@FindBy(xpath="//button[text()='No option selected ']")
 	public static WebElement txt_mandatoryPrefferedLocation; 
+<<<<<<< Updated upstream
 =======
 	@FindBy(xpath="//input[@placeholder='Search']")
 	public static WebElement drp_PreferredLocationSearch;
 	
 >>>>>>> 98a9e1a9b395b1312ea330dc07e54767c9405868
+=======
+	@FindBy(xpath="//input[@placeholder='Search']")
+	public static WebElement drp_PreferredLocationSearch;
+	
+>>>>>>> Stashed changes
 	
 	@FindBy(xpath="//a[@id='backtostep1']")
 	public static WebElement btn_back;
