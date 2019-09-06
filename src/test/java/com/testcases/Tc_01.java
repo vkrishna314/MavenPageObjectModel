@@ -23,9 +23,14 @@ if(status)
 {
 	JobSeeker_StepDefinitions jobseeker=new JobSeeker_StepDefinitions();
 	
+<<<<<<< HEAD
 	jobseeker.validate_AllMandatoryFields("Personal Information");
+=======
+	//jobseeker.validate_AllMandatoryFields_PersonalInformation();
+>>>>>>> 98a9e1a9b395b1312ea330dc07e54767c9405868
 	jobseeker.fillForm_PersonalInformation();
 	jobseeker.fillForm_ProfessionalDetails();
+	jobseeker.fillForm_EducationalDetails();
 	
 	
 	

@@ -3,6 +3,7 @@ package com.commonutils;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -1042,6 +1043,7 @@ public class CommonUtlities extends ParseJSON{
 	}
 
 	
+<<<<<<< HEAD
 public static boolean closedriver()
 {
 	boolean status= true;
@@ -1056,6 +1058,19 @@ catch(Exception e){
 	status=false;
 }
 return status;
+=======
+	public static void scrollDown()
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+	}
+	
+	public static void forceClick(WebElement element)
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();",element);
+	}
+>>>>>>> 98a9e1a9b395b1312ea330dc07e54767c9405868
 
 }
 public static boolean quitdriver()
