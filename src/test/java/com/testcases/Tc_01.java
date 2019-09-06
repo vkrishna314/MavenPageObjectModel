@@ -23,13 +23,12 @@ if(status)
 {
 	JobSeeker_StepDefinitions jobseeker=new JobSeeker_StepDefinitions();
 	
-	jobseeker.validate_AllMandatoryFields_PersonalInformation();
+	jobseeker.validate_AllMandatoryFields("Personal Information");
 	jobseeker.fillForm_PersonalInformation();
 	jobseeker.fillForm_ProfessionalDetails();
 	
 	
-	driver.close();
-	driver.quit();
+	
 	
 }
 

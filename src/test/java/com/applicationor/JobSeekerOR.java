@@ -77,22 +77,38 @@ public class JobSeekerOR {
 	public static WebElement drp_ExpectedCTC_Thousands;
 	
 	@FindBy(xpath="//input[@id='ctl00_ContentPlaceHolder2_txtkeywords']")
-	public static WebElement txt_Keyskills;
+	public static WebElement lbl_Keyskills;
+	
+	@FindBy(xpath="//span[@id='ctl00_ContentPlaceHolder2_rfvtxtkeywords']")
+	public static WebElement txt_MandatoryKeySkills;
 	
 	@FindBy(xpath="//input[@id='ctl00_ContentPlaceHolder2_txtresumeheadline']")
-	public static WebElement txt_ResumeHeadline;
+	public static WebElement lbl_ResumeHeadline;
+	
+	@FindBy(xpath="//span[@id='ctl00_ContentPlaceHolder2_RequiredFieldValidator1']")
+	public static WebElement txt_resumeheadlinerror;
+	
 	
 	@FindBy(xpath="//input[@id='ctl00_ContentPlaceHolder2_txtCurrentCompany']")
-	public static WebElement txt_CurrentCompany;
+	public static WebElement lbl_CurrentCompany;
 	
 	@FindBy(xpath="//select[@id='ctl00_ContentPlaceHolder2_ddlocation']")
 	public static WebElement drp_CurrentLocation;
+	
+	@FindBy(xpath="//label[normalize-space(text())='Current Location']")
+	public static WebElement lbl_CurrentLocation;
+	
+	@FindBy(xpath ="//span[@id='ctl00_ContentPlaceHolder2_RequiredFieldValidator5']")
+	public static WebElement txt_MandatoryCurrentLocation;
 	
 	@FindBy(xpath="//select[@id='ctl00_ContentPlaceHolder2_ddllocality']")
 	public static WebElement txt_Locaclity;
 	
 	@FindBy(xpath="//button[@class='multiselect dropdown-toggle btn-block btn btn-default']")
 	public static WebElement drp_PreferredLocation;
+	
+	@FindBy(xpath="//button[text()='No option selected ']")
+	public static WebElement txt_mandatoryPrefferedLocation; 
 	
 	@FindBy(xpath="//a[@id='backtostep1']")
 	public static WebElement btn_back;

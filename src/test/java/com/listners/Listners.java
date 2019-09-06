@@ -7,6 +7,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.commonutils.CommonUtlities;
 import com.jsonreader.ParseJSON;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.reporting.ExtentReport;
@@ -21,6 +22,9 @@ public class Listners implements ITestListener,IInvokedMethodListener{
 		System.out.println("in afterInvocation");
 		System.out.println(arg1.getName());
 		extent.endTest();
+		CommonUtlities utilities = new CommonUtlities();
+		utilities.closedriver();
+		utilities.quitdriver();
 		
 	}
 

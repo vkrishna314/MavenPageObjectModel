@@ -72,7 +72,7 @@ public class CommonUtlities extends ParseJSON{
 			switch (browser.toLowerCase()) {
 			case "chrome":
 				System.setProperty("webdriver.chrome.driver",
-						"C://Users//Vamsikrishna//eclipse-workspace//SeleniumProject//chromedriver.exe");
+						"C://Users//HOME//Desktop//Drivers//chromedriver.exe");
 				driver = new ChromeDriver();
 				break;
 			case "ff":
@@ -1031,6 +1031,7 @@ public class CommonUtlities extends ParseJSON{
 		String xpath = getXpathFromElement(element);
 		By locator = By.xpath(xpath);
 		wait = new WebDriverWait(driver, time);
+		
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 
@@ -1041,7 +1042,38 @@ public class CommonUtlities extends ParseJSON{
 	}
 
 	
-
+public static boolean closedriver()
+{
+	boolean status= true;
+try{	
+	System.out.println("trying to close the driver");
+	driver.close();
+	LogStatus("pass","Driver closed successfully");
+}
+catch(Exception e){
 	
+	LogStatus("fail","unable to close the browser");
+	status=false;
+}
+return status;
+
+}
+public static boolean quitdriver()
+{
+	boolean status= true;
+try{	
+	System.out.println("trying to quit the driver");
+	driver.close();
+	LogStatus("pass","Driver quit successfully");
+}
+catch(Exception e){
+	
+	LogStatus("fail","unable to quit the browser");
+	status=false;
+}
+return status;
+
+}
+
 
 }

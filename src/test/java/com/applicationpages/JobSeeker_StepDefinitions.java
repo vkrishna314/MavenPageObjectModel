@@ -137,7 +137,7 @@ String firstname= getName();
 		String CurrentCompany=getData("TestData", "CurrentCompany");
 		sendData("Current Company",
 				"Job Seeker_Professional Details",
-				jobseekeror.txt_CurrentCompany, CurrentCompany);
+				jobseekeror.txt, CurrentCompany);
 		//Key Skills
 		String keySkills=getData("TestData", "keySkills");
 		sendDataByClearing("Current Company",
@@ -172,34 +172,37 @@ String firstname= getName();
 				jobseekeror.drp_CurrentIndustry, "Accounting/Finance");
 
 	}
-
-	public void validate_AllMandatoryFields_PersonalInformation() {
+//validating all the mandatory fields for Personal Information Page
+	public void validate_AllMandatoryFields(String PageName) {
+		switch(PageName.toLowerCase()){
+		case "personal information":
+		
 try{
-           validate_MandatoryFields_PersonalInformation("First Name ",
+           validate_MandatoryField(PageName,"First Name ",
 				jobseekeror.lbl_FirstName, errorMessages()
 						.get("firstnameerror").toString(),
 				jobseekeror.txt_FirstNameMandatorytext);
-		validate_MandatoryFields_PersonalInformation("Last Name",
+		validate_MandatoryField(PageName,"Last Name",
 				jobseekeror.lbl_LastName, errorMessages().get("lastnameerror")
 						.toString(), jobseekeror.txt_LastNameMandatorytext);
-		validate_MandatoryFields_PersonalInformation("EmailId",
+		validate_MandatoryField(PageName,"EmailId",
 				jobseekeror.lbl_Email, errorMessages().get("emailiderror")
 						.toString(), jobseekeror.txt_EmailMandatorytext);
-		validate_MandatoryFields_PersonalInformation("Contact Number",
+		validate_MandatoryField(PageName,"Contact Number",
 				jobseekeror.lbl_ContactNumber,
 				errorMessages().get("contactnumbererror").toString(),
 				jobseekeror.txt_ContactMandatorytext);
-		validate_MandatoryFields_PersonalInformation("Password",
+		validate_MandatoryField(PageName,"Password",
 				jobseekeror.lbl_Password, errorMessages().get("passworderror")
 						.toString(), jobseekeror.txt_PasswordMandatorytext);
-		validate_MandatoryFields_PersonalInformation("ConfirmPassword",
+		validate_MandatoryField(PageName,"ConfirmPassword",
 				jobseekeror.lbl_ConfirmPassword,
 				errorMessages().get("confirmpassworderror").toString(),
 				jobseekeror.txt_ConfirmPasswordMandatorytext);
-		validate_MandatoryFields_PersonalInformation("Gender",
+		validate_MandatoryField(PageName,"Gender",
 				jobseekeror.lbl_Gender, errorMessages().get("gendererror")
 						.toString(), jobseekeror.txt_GenderMandatorytext);
-		LogStatus("pass","Successfully validated all the mandatory fields");
+		LogStatus("pass","Successfully validated all the mandatory fields of Personal Information");
 	
 
 		
@@ -211,10 +214,33 @@ try{
 					+ e1.getMessage());
 }
 
+		case "professsional details":
+			try{
+				
+		   validate_MandatoryField(PageName, "Current Industry", jobseekeror.lbl_CurrentIndustry, errorMessages().get("currentindustry"), jobseekeror.txt_MandatoryCurrentIndustry);
+		   validate_MandatoryField(PageName, "Role", jobseekeror.lbl_Role, errorMessages().get("keyskills"), jobseekeror.txt_MandatoryRole);
+           validate_MandatoryField(PageName, "Job Type", jobseekeror.lbl_JobType, errorMessages().get("jobtype"), jobseekeror.txt_MandatoryRole);
+           validate_MandatoryField(PageName, "Key Skills",jobseekeror.lbl_Keyskills, errorMessages().get("keyskills"),jobseekeror.txt_MandatoryKeySkills);
+           validate_MandatoryField(PageName, "Current Location", jobseekeror.lbl_CurrentLocation, errorMessages().get("currentlocation"), jobseekeror.txt_MandatoryCurrentLocation);
+					}
+			catch(Exception e2){
+			
+			LogStatus("fail","error in validate _AllMandatoryFields_Professional Details"+e2.getMessage());
+			}
+		case "educational details":
+			try{
+			//validate_MandatoryField(PageName, "", jobseekeror.lbl, object, mandatorytxtelement);
+		}
+			catch(Exception e){
+			}
+			}
+			
+
 	}
 
 	public static Map errorMessages() {
 		HashMap<String, String> map = new HashMap<String, String>();
+		//error messages for personal information
 		map.put("firstnameerror", "* Please specify firstname.");
 		map.put("lastnameerror", "* Please specify lastname.");
 		map.put("emailiderror", "* Please specify email id.");
@@ -222,14 +248,27 @@ try{
 		map.put("passworderror", "* Please specify password.");
 		map.put("confirmpassworderror", "* Please specify confirm password.");
 		map.put("gendererror", "* Please specify gender.");
+		
+		//error messages for educational details
+		map.put("currentindustry", "* Please specify industry.");
+		map.put("role", "Please specify role");
+		map.put("jobtype", "* Please select job type.");
+		map.put("keyskills", "* Please specify key skills.");
+		map.put("resumeheadline","* Please specify resume headline.");
+		map.put("currentlocation", "* Please specify location.");
+		
+		
+		
 		return map;
 	}
-
-	public void validate_MandatoryFields_PersonalInformation(
-			String elementname, WebElement element, String object,
+//method to validate the mandatory field
+	public void validate_MandatoryField(String PageName,
+			String elementname, WebElement element, Object object,
 			WebElement mandatorytxtelement) {
+switch(PageName.toLowerCase()){
 
-		// Checking for the null value in FirstName Field
+case "personal information":
+		// Checking for the null value in  Field
 		try {
 			if (!(element == null)) {
 				jobseekeror.btn_ContinueStep1.click();
@@ -243,10 +282,48 @@ try{
 			LogStatus("fail",elementname+"is null"
 							+ e1.getMessage());
 		}
+break;
 
-		// Validation of mandatory text for first name
+case "professional details":
+	try {
+		if (!(element == null)) {
+			jobseekeror.btn_ContinueStep2.click();
+			
+		LogStatus("pass",elementname+"is not null");
+		} else
+
+			throw new Exception(elementname + " is null");
+		LogStatus("fail",elementname+" is Element Name is null");
+	} catch (Exception e1) {
+		LogStatus("fail",elementname+"is null"
+						+ e1.getMessage());
+	}
+break;
+
+case "educational details":
+	try {
+		if (!(element == null)) {
+			jobseekeror.btn_Submit.click();
+			
+		LogStatus("pass",elementname+"is not null");
+		} else
+
+			throw new Exception(elementname + " is null");
+		LogStatus("fail",elementname+" is Element Name is null");
+	} catch (Exception e1) {
+		LogStatus("fail",elementname+"is null"
+						+ e1.getMessage());
+	}
+break;
+ default:
+	 System.out.println("Enter the valid page name" );
+	
+	 
+}
+
+		// Validation of mandatory text for webelement
 		String msg = getTextForWebElement(elementname,
-				"JobSeeker Personal Informaton", mandatorytxtelement);
+				PageName, mandatorytxtelement);
 		try {
 			if (msg.equals(object)) {
 				System.out.println("Correct validations of" + object);
@@ -266,8 +343,10 @@ try{
 				
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			LogStatus("fail","error in validate_MandatoryFields_PersonalInformation"
+			LogStatus("fail","error in validate_MandatoryFields"
 							+ e.getMessage());
 		}
+
+	
 	}
 }
