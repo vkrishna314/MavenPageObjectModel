@@ -76,21 +76,34 @@ public class JobSeekerOR {
 	@FindBy(xpath="//select[@id='ctl00_ContentPlaceHolder2_ddlExpectedCTCThousand']")
 	public static WebElement drp_ExpectedCTC_Thousands;
 	
-	@FindBy(xpath="//input[@id='ctl00_ContentPlaceHolder2_txtkeywords']")
-	public static WebElement lbl_Keyskills;
+	 
+
+
+		
+
+    @FindBy(xpath="//label[normalize-space(text())='Key Skills']")
+     public WebElement lbl_Keyskills;
+
+		@FindBy(xpath="//input[@id='ctl00_ContentPlaceHolder2_txtkeywords']")
+	public static WebElement edi_Keyskills;
 	
 	@FindBy(xpath="//span[@id='ctl00_ContentPlaceHolder2_rfvtxtkeywords']")
 	public static WebElement txt_MandatoryKeySkills;
 	
+	 @FindBy(xpath="//label[normalize-space(text())='Resume Headline']")
+		public WebElement lbl_ResumeHeadline;
+	
 	@FindBy(xpath="//input[@id='ctl00_ContentPlaceHolder2_txtresumeheadline']")
-	public static WebElement lbl_ResumeHeadline;
+	public static WebElement edi_ResumeHeadline;
 	
 	@FindBy(xpath="//span[@id='ctl00_ContentPlaceHolder2_RequiredFieldValidator1']")
 	public static WebElement txt_resumeheadlinerror;
 	
+	@FindBy(xpath="//label[text()='Current Company :']")
+	public WebElement lbl_CurrentCompany;
 	
 	@FindBy(xpath="//input[@id='ctl00_ContentPlaceHolder2_txtCurrentCompany']")
-	public static WebElement lbl_CurrentCompany;
+	public static WebElement edi_CurrentCompany;
 	
 	@FindBy(xpath="//select[@id='ctl00_ContentPlaceHolder2_ddlocation']")
 	public static WebElement drp_CurrentLocation;
@@ -107,20 +120,16 @@ public class JobSeekerOR {
 	@FindBy(xpath="//button[@class='multiselect dropdown-toggle btn-block btn btn-default']")
 	public static WebElement drp_PreferredLocation;
 	
-<<<<<<< HEAD
 	@FindBy(xpath="//button[text()='No option selected ']")
 	public static WebElement txt_mandatoryPrefferedLocation; 
-<<<<<<< Updated upstream
-=======
+
+
+	
+
 	@FindBy(xpath="//input[@placeholder='Search']")
 	public static WebElement drp_PreferredLocationSearch;
 	
->>>>>>> 98a9e1a9b395b1312ea330dc07e54767c9405868
-=======
-	@FindBy(xpath="//input[@placeholder='Search']")
-	public static WebElement drp_PreferredLocationSearch;
-	
->>>>>>> Stashed changes
+
 	
 	@FindBy(xpath="//a[@id='backtostep1']")
 	public static WebElement btn_back;
@@ -329,6 +338,7 @@ public class JobSeekerOR {
 	@FindBy(xpath="//input[@name='ctl00$ContentPlaceHolder2$btnSubmit']")
 	public static WebElement btn_Submit;
 
+   
 	
 	
 	

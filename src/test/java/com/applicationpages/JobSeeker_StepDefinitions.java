@@ -144,19 +144,19 @@ public class JobSeeker_StepDefinitions extends CommonUtlities {
 				  String ResumeHeadline=getData("TestData", "ResumeHeadline");
 				  
 				  sendDataByClearing("Resume Headline", "Job Seeker_Professional Details",
-				  jobseekeror.txt_ResumeHeadline, ResumeHeadline);
+				  jobseekeror.edi_ResumeHeadline, ResumeHeadline);
 				 
 
 				// Enter Current Company
 				String CurrentCompany=getData("TestData", "CurrentCompany");
 				sendData("Current Company",
 						"Job Seeker_Professional Details",
-						jobseekeror.txt_CurrentCompany, CurrentCompany);
+						jobseekeror.edi_CurrentCompany, CurrentCompany);
 				//Key Skills
 				String keySkills=getData("TestData", "keySkills");
 				sendDataByClearing("Current Company",
 						"Job Seeker_Professional Details",
-						jobseekeror.txt_Keyskills, keySkills);
+						jobseekeror.edi_Keyskills, keySkills);
 
 				// Select Current Location
 				String CurrentLocation=getData("TestData", "CurrentLocation");
@@ -189,34 +189,33 @@ public class JobSeeker_StepDefinitions extends CommonUtlities {
 				System.out.println("Professional Details Filled Successfully");
 				LogStatus("pass", "Professional Details Filled Successfully");
 		
-<<<<<<< HEAD
 		//Select JobType
-		String JobType=getData("TestData", "JobType");
+		String JobType1=getData("TestData", "JobType");
 		selectDropdownByVisibleText("Job Type",
 				"Job Seeker_Professional Details", jobseekeror.drp_JobType,
-				JobType);
+				JobType1);
 
 		// Enter Current Designation
-		String CurrentDesignation=getData("TestData", "CurrentDesignation");
+		String CurrentDesignation1=getData("TestData", "CurrentDesignation");
 
 		sendData("Current Designation",
 				"Job Seeker_Professional Details",
-				jobseekeror.edi_CurrentDesignation, CurrentDesignation);
+				jobseekeror.edi_CurrentDesignation, CurrentDesignation1);
 
 
 		// Select Total Experience in Years
-		String ExpYears=getData("TestData", "ExpYears");
+		String ExpYears1=getData("TestData", "ExpYears");
 
 		selectDropdownByVisibleText("Total Experience in Years",
 				"Job Seeker_Professional Details",
 				jobseekeror.drp_TotalExperience_Years, ExpYears);
 
 		// Select Total Experience in Months
-		String ExpMonths=getData("TestData", "ExpMonths");
+		String ExpMonths1=getData("TestData", "ExpMonths");
 
 		selectDropdownByVisibleText("Total Experience in Months",
 				"Job Seeker_Professional Details",
-				jobseekeror.drp_TotalExperience_Months, ExpMonths);
+				jobseekeror.drp_TotalExperience_Months, ExpMonths1);
 
 		// Enter Resume Headline
 		/*
@@ -227,40 +226,34 @@ public class JobSeeker_StepDefinitions extends CommonUtlities {
 		 */
 
 		// Enter Current Company
-		String CurrentCompany=getData("TestData", "CurrentCompany");
+		String CurrentCompany1=getData("TestData", "CurrentCompany");
 		sendData("Current Company",
 				"Job Seeker_Professional Details",
-				jobseekeror.txt, CurrentCompany);
+				jobseekeror.edi_CurrentCompany, CurrentCompany);
 		//Key Skills
-		String keySkills=getData("TestData", "keySkills");
+		String keySkills1=getData("TestData", "keySkills");
 		sendDataByClearing("Current Company",
 				"Job Seeker_Professional Details",
-				jobseekeror.txt_Keyskills, keySkills);
+				jobseekeror.edi_Keyskills, keySkills);
 
 		// Select Current Location
-		String CurrentLocation=getData("TestData", "CurrentLocation");
+		String CurrentLocation1=getData("TestData", "CurrentLocation");
 		selectDropdownByVisibleText("Current Location",
 				"Job Seeker_Professional Details",
-				jobseekeror.drp_CurrentLocation, CurrentLocation);
+				jobseekeror.drp_CurrentLocation, CurrentLocation1);
 
 		// Select Preferred Location
-		String PreferredLocation=getData("TestData", "PreferredLocation");
+		String PreferredLocation1=getData("TestData", "PreferredLocation");
 		selectDropdownByVisibleText("Preferred Location",
 				"Job Seeker_Professional Details",
 				jobseekeror.drp_PreferredLocation, PreferredLocation);
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
+
 	}else {
 		System.out.println("Unable to navigate to Professional Details page");
 		LogStatus("fail", "Professional Details not filled");
 	}
 
-<<<<<<< Updated upstream
->>>>>>> 98a9e1a9b395b1312ea330dc07e54767c9405868
-=======
->>>>>>> Stashed changes
+
 		
 
 	}
